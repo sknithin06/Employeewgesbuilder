@@ -4,6 +4,7 @@ public class Employeewages {
 	public static final int isParttime = 2;
 	public static final int empRatePerHrs = 20;
 	public static final int numWorkingDays = 20;
+	public static final int maxHrsMonth =10;
 	public static void main (String[] agrs) {
 		System.out.println("Welcome to Empwages");
 		 int isPresent = 1;
@@ -14,7 +15,7 @@ public class Employeewages {
 			System.out.println("Employee is Absent");
 		 
 		 double empHrs = 8;
-		 double Salary=(empHrs * empRatePerHrs);
+		 double Salary=(empHrs * empRatePerHrs) ;
 		 if (empcheck == isPresent)
 			 System.out.println("Salary is ="+Salary);
 		 else
@@ -68,5 +69,28 @@ public class Employeewages {
 			 System.out.println("empwage is:"+empwage);
 		}
 		 System.out.println("totalEmpWage is:"+totalEmpWage);
+	
+		 int EMPHRS =0, totalEmpHrs =0, totalWorkingDays =0;
+		 while (totalEmpHrs <= numWorkingDays && 
+				totalWorkingDays < maxHrsMonth) {  
+			 totalWorkingDays++;
+			 int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
+			 switch ( employeeCheck) {
+			 	case  isFulltime :
+			 		  EMPHRS = 8;
+			 		break ;
+			 	case  isParttime :
+			 		  EMPHRS= 4;
+			 		break;
+			 	default:
+			 		 EMPHRS = 0;
+			 }
+			 totalEmpHrs += EMPHRS;
+			 System.out.println("Day#: " + totalWorkingDays + " Emphr: " +EMPHRS);
+			 empWages = EMPHRS * empRatePerHrs;
+			 System.out.println("empwage is:"+empWages);
+		 }
+		 int totalEmpWages = totalEmpHrs * empRatePerHrs;
+		 System.out.println("totalEmpWages is:"+totalEmpWages);
 	}
 }
